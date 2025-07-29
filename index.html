@@ -8,20 +8,20 @@
       margin: 0;
       padding: 60px;
       font-family: 'Lato', sans-serif;
-      background-image: url('plano_fundo.png'); /* Caminho relativo dentro do repositório */
+      background-image: url('plano_fundo.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 40px 40px 80px;  /* mais espaço embaixo, menos no topo */
+      padding: 40px 40px 80px;
       min-height: 100vh;
     }
     .cardapio {
       max-width: 800px;
       width: 100%;
-      background-color: rgba(255, 247, 241, 0.95); /* Fundo semi-transparente */
+      background-color: rgba(255, 247, 241, 0.95);
       padding: 30px;
       border-radius: 20px;
       border: 3px solid #5e2e1f;
@@ -41,17 +41,28 @@
       margin-bottom: 25px;
     }
     .item {
-      display: flex-wrap;
-      justify-content: space-between;
-      align-items: flex-start;
       padding: 10px 0;
       border-bottom: 1px dotted #c9a88a;
       font-size: 16px;
       color: #3d2b1f;
-      gap: 10px;
     }
     .item:last-child {
       border-bottom: none;
+    }
+    .produto {
+      cursor: pointer;
+      font-weight: bold;
+      color: #5e2e1f;
+    }
+    .descricao {
+      display: none;
+      font-size: 14px;
+      color: #6b4b3a;
+      margin-top: 5px;
+    }
+    .preco {
+      float: right;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -61,45 +72,51 @@
     <div class="sub">@brendacozinhagourmet</div>
 
     <div class="item">
-      <span>Cookie Individual (60 gramas) - </span>
-      <span>R$ 10,00</span>
+      <div class="produto" onclick="toggleDescricao('desc1')">Cookie Individual (60 gramas) <span class="preco">R$ 10,00</span></div>
+      <div id="desc1" class="descricao">Cookie amanteigado com gotas de chocolate belga. Macio por dentro, crocante por fora.</div>
     </div>
-    
+
     <div class="item">
-      <span>Mini Cookies, (Consultar Sabores, 10 unid) - </span>
-      <span>R$ 28,00</span>
+      <div class="produto" onclick="toggleDescricao('desc2')">Mini Cookies (10 unid) <span class="preco">R$ 28,00</span></div>
+      <div id="desc2" class="descricao">Miniaturas dos nossos cookies, perfeitos para presentear ou compartilhar. Consulte os sabores disponíveis.</div>
     </div>
-    
+
     <div class="item">
-      <span>Biscoitinho banhado no chocolate branco com leite em pó e raspas de limão (100 gramas) - </span>
-      <span>R$ 10,00</span>
+      <div class="produto" onclick="toggleDescricao('desc3')">Biscoitinho com Chocolate Branco e Limão <span class="preco">R$ 10,00</span></div>
+      <div id="desc3" class="descricao">100g de biscoitos crocantes, banhados em chocolate branco e finalizados com raspas de limão.</div>
     </div>
-    
+
     <div class="item">
-      <span>Mix Tradicionais (Consultar Sabores) - </span>
-      <span>(P)R$ 27,00 e (G)R$ 37,00</span>
+      <div class="produto" onclick="toggleDescricao('desc4')">Mix Tradicionais <span class="preco">(P)R$ 27,00 / (G)R$ 37,00</span></div>
+      <div id="desc4" class="descricao">Seleção de sabores clássicos e amados. Consulte as combinações disponíveis no momento.</div>
     </div>
-    
+
     <div class="item">
-      <span>Mix Premium (Consultar Sabores) - </span>
-      <span>(P)R$ 35,00 e (G)R$ 45,00</span>
+      <div class="produto" onclick="toggleDescricao('desc5')">Mix Premium <span class="preco">(P)R$ 35,00 / (G)R$ 45,00</span></div>
+      <div id="desc5" class="descricao">Sabores exclusivos, com ingredientes nobres. Ideal para ocasiões especiais.</div>
     </div>
-      
+
     <div class="item">
-      <span>Tronco Cebola Caramelizada (700 gramas) - </span>
-      <span>R$ 95,00</span>
+      <div class="produto" onclick="toggleDescricao('desc6')">Tronco Cebola Caramelizada (700g) <span class="preco">R$ 95,00</span></div>
+      <div id="desc6" class="descricao">Terrine salgada à base de massa leve, recheada com cebolas caramelizadas. Ideal para servir fatiado.</div>
     </div>
-      
+
     <div class="item">
-      <span>Terrines (Consultar Sabores, Serve de 10 a 15 pessoas, 1.150 kg) - </span>
-      <span>R$ 140,00</span>
+      <div class="produto" onclick="toggleDescricao('desc7')">Terrines (1,150kg) <span class="preco">R$ 140,00</span></div>
+      <div id="desc7" class="descricao">Serve de 10 a 15 pessoas. Sobremesa cremosa e delicada. Consulte os sabores disponíveis.</div>
     </div>
-    
+
     <div class="item">
-      <span>Mix na Taça (Consultar Sabores, 1.250 kg) - </span>
-      <span>R$ 160,00</span>
+      <div class="produto" onclick="toggleDescricao('desc8')">Mix na Taça (1,250kg) <span class="preco">R$ 160,00</span></div>
+      <div id="desc8" class="descricao">Montado em camadas numa taça decorativa. Visual impactante e sabores equilibrados. Ideal para festas.</div>
     </div>
-    
   </div>
+
+  <script>
+    function toggleDescricao(id) {
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
+    }
+  </script>
 </body>
 </html>
