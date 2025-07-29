@@ -2,92 +2,60 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CARDÁPIO</title>
   <style>
-    /* ===== Estilos gerais (desktop) ===== */
     body {
       margin: 0;
-      padding: 20px 40px 40px 40px; /* padding-top reduzido para subir a logo */
+      padding: 20px 40px 40px 40px; /* top, right, bottom, left */
       font-family: 'Lato', sans-serif;
       background-image: url('plano_fundo.png');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
     }
 
     .cardapio {
-      max-width: 800px;
-      width: 100%;
-      background-color: rgba(255, 247, 241, 0.95);
-      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 20px;
-      border: 3px solid #e7d7d2;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      box-sizing: border-box;
-    }
-
-    .logo-container {
-      text-align: center;
-      margin-bottom: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .logo {
-      max-width: 400px;
-      height: auto;
+      text-align: center;
+      margin-bottom: 10px;
     }
 
-    .titulo {
-      font-family: 'Dancing Script', cursive;
-      font-size: 50px;
-      color: #5e2e1f;
+    .logo img {
+      max-width: 100px;
+    }
+
+    h1 {
       text-align: center;
+      font-size: 28px;
+      color: #5c3d28;
       margin-bottom: 5px;
     }
 
-    .sub {
+    .subtitulo {
       text-align: center;
       font-size: 14px;
-      color: #7a4a35;
+      color: #a27c5c;
       margin-bottom: 20px;
     }
 
     .item {
-      padding: 12px 0;
-      border-bottom: 1px dotted #c9a88a;
-      font-size: 16px;
-      color: #3d2b1f;
-    }
-
-    .item:last-child {
-      border-bottom: none;
-    }
-
-    .produto {
-      cursor: pointer;
-      font-weight: bold;
-      color: #000;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 15px;
+      margin-bottom: 10px;
+      border-bottom: 1px dotted #ccc;
+      padding-bottom: 5px;
     }
 
     .descricao {
-      display: none;
-      font-size: 14px;
-      color: #6b4b3a;
-      margin-top: 8px;
-      padding-left: 5px;
-    }
-
-    .descricao-especial {
-      color: #a0522d;
+      font-weight: bold;
+      color: #4b2e1f;
     }
 
     .preco {
@@ -95,67 +63,80 @@
       white-space: nowrap;
     }
 
-    /* ===== Ajustes para celular ===== */
     @media (max-width: 800px) {
       body {
-        padding: 5px 15px 15px 15px; /* topo reduzido ainda mais no celular */
+        padding: 5px 15px 15px 15px; /* Menos espaço no topo no celular */
       }
 
       .cardapio {
         padding: 20px;
       }
 
-      .logo {
-        max-width: 500px; /* levemente maior no celular, mas você pode ajustar */
+      h1 {
+        font-size: 22px;
       }
 
-      .titulo {
-        font-size: 38px;
-      }
-
-      .sub {
-        font-size: 13px;
-      }
-
-      .item {
+      .subtitulo {
         font-size: 12px;
       }
 
       .descricao {
-        font-size: 13px;
+        font-size: 14px;
       }
 
       .preco {
-        font-size: 18px;  /* 💰 Preço maior no celular */
+        font-size: 18px; /* Aumenta o valor no celular */
       }
     }
   </style>
 </head>
 <body>
   <div class="cardapio">
-    <div class="logo-container">
-      <img src="logo.png" alt="Logo Brenda Mendes" class="logo">
+    <div class="logo">
+      <img src="logo.png" alt="Logo" />
     </div>
+    <h1>CARDÁPIO</h1>
+    <div class="subtitulo">@brendacozinhagourmet</div>
 
-    <div class="titulo">CARDÁPIO</div>
-    <div class="sub">@brendacozinhagourmet</div>
-
-    <!-- Exemplos de itens -->
     <div class="item">
-      <div class="produto">
-        <span>Cookie Individual (60 gramas)</span>
-        <span class="preco">R$ 10,00</span>
-      </div>
+      <div class="descricao">Cookie Individual (60 gramas)</div>
+      <div class="preco">R$ 10,00</div>
     </div>
-    <!-- Repita para os outros itens seguindo a estrutura original -->
-    <!-- ... -->
-  </div>
 
-  <script>
-    function toggleDescricao(id) {
-      const el = document.getElementById(id);
-      el.style.display = (el.style.display === 'block') ? 'none' : 'block';
-    }
-  </script>
+    <div class="item">
+      <div class="descricao">Mini Cookies (Consultar Sabores, 10 unid)</div>
+      <div class="preco">R$ 28,00</div>
+    </div>
+
+    <div class="item">
+      <div class="descricao">Biscoitinho de chocolate branco com de limão (100 gramas)</div>
+      <div class="preco">R$ 10,00</div>
+    </div>
+
+    <div class="item">
+      <div class="descricao">Mix Tradicionais (Consultar Sabores)</div>
+      <div class="preco">(P)R$ 27,00 / (G)R$ 37,00</div>
+    </div>
+
+    <div class="item">
+      <div class="descricao">Mix Premium (Consultar Sabores)</div>
+      <div class="preco">(P)R$ 35,00 / (G)R$ 45,00</div>
+    </div>
+
+    <div class="item">
+      <div class="descricao">Tronco Cebola Caramelizada (700 gramas)</div>
+      <div class="preco">R$ 95,00</div>
+    </div>
+
+    <div class="item">
+      <div class="descricao">Terrines (Consultar Sabores, Serve de 10 a 15 pessoas, 1.150 kg)</div>
+      <div class="preco">R$ 140,00</div>
+    </div>
+
+    <div class="item">
+      <div class="descricao">Mix na Taça (Consultar Sabores, 1.250 kg)</div>
+      <div class="preco">R$ 160,00</div>
+    </div>
+  </div>
 </body>
 </html>
