@@ -33,13 +33,19 @@
     }  
   
     .logo-container {  
-        text-align: center;  
-        margin-bottom: 20px;  
+      text-align: center;  
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;  
     }  
   
-    .logo {  
-        max-width: 600px; /* Largura máxima da logo */  
-        height: auto;  
+    .logo {
+      max-width: 350px; /* Reduzido para melhor proporção */
+      width: 100%; /* Garante que seja responsivo */
+      height: auto;
+      display: block;
+      margin: 0 auto; /* Centralização adicional */
     }  
   
     .titulo {  
@@ -106,11 +112,11 @@
       }  
   
       .cardapio {  
-        padding: 40px;  
+        padding: 20px;  
       }  
   
       .logo {  
-        max-width: 600px; /* Logo um pouco menor no celular */  
+        max-width: 280px; /* Logo um pouco menor no celular */  
       }  
   
       .titulo {  
