@@ -1,422 +1,241 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cardápio - Brenda Mendes Cozinha Gourmet</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            background: url('plano_fundo.png') center/cover no-repeat fixed;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .logo-icon {
-            font-size: 40px;
-            color: #8B4513;
-            margin-bottom: 10px;
-        }
-
-        .brand-name {
-            font-size: 2.2rem;
-            color: #8B4513;
-            font-weight: bold;
-            margin-bottom: 5px;
-            font-style: italic;
-        }
-
-        .brand-subtitle {
-            font-size: 0.9rem;
-            color: #8B4513;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .cardapio-title {
-            font-size: 1.8rem;
-            color: #D2691E;
-            margin: 20px 0 10px 0;
-            font-style: italic;
-        }
-
-        .instagram {
-            color: #8B4513;
-            font-size: 1rem;
-        }
-
-        .menu-list {
-            list-style: none;
-        }
-
-        .menu-item {
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 5px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .item-header:hover {
-            background-color: rgba(139, 69, 19, 0.05);
-        }
-
-        .item-name {
-            font-size: 1rem;
-            color: #333;
-            font-weight: 500;
-            flex-grow: 1;
-        }
-
-        .item-price {
-            font-size: 1rem;
-            color: #D2691E;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-
-        .expand-icon {
-            margin-left: 10px;
-            color: #8B4513;
-            transition: transform 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .menu-item.expanded .expand-icon {
-            transform: rotate(180deg);
-        }
-
-        .item-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-            background-color: rgba(139, 69, 19, 0.02);
-        }
-
-        .menu-item.expanded .item-details {
-            max-height: 500px;
-            padding: 20px;
-        }
-
-        .item-content {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .item-image {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
-            overflow: hidden;
-            background: linear-gradient(45deg, #D2691E, #8B4513);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .item-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .photo-placeholder {
-            color: white;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .placeholder-icon {
-            font-size: 50px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .item-description {
-            color: #666;
-            line-height: 1.6;
-            font-size: 0.95rem;
-            font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                margin: 10px;
-                padding: 20px;
-            }
-            
-            .brand-name {
-                font-size: 1.8rem;
-            }
-            
-            .item-name {
-                font-size: 0.9rem;
-            }
-            
-            .item-price {
-                font-size: 0.9rem;
-            }
-        }
-
-        .background-cookies {
-            position: fixed;
-            bottom: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23D2691E" opacity="0.1"/></svg>');
-            z-index: -1;
-        }
-    </style>
-</head>
-<body>
-    <div class="background-cookies"></div>
-    
-    <div class="container">
-        <header class="header">
-            <div class="logo">
-                <div class="logo">
-                    <img src="logo.png" alt="Logo Brenda Mendes" class="logo">
-                </div>
-            
-            <div class="cardapio-title">CARDÁPIO</div>
-            <div class="instagram">@brendacozinhagourmet</div>
-        </header>
-
-        <ul class="menu-list">
-            <li class="menu-item">
-                <div class="item-header" onclick="toggleItem(this)">
-                    <span class="item-name">Cookie Individual (60 gramas)</span>
-                    <span class="item-price">R$ 10,00</span>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="item-details">
-                    <div class="item-content">
-                        <div class="item-image">
-                            <img src="images/cookie-individual.jpg" alt="cookie-individual">
-                            </div>
-                        </div>
-                        <div class="item-description">
-                            Cookies amanteigados com gotas de chocolate preto ou branco. Macio por dentro, crocante por fora.
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="menu-item">
-                <div class="item-header" onclick="toggleItem(this)">
-                    <span class="item-name">Mini Cookies (Consultar Sabores, 10 unid)</span>
-                    <span class="item-price">R$ 28,00</span>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="item-details">
-                    <div class="item-content">
-                        <div class="item-image">
-                            <div class="photo-placeholder">
-                                <span class="placeholder-icon">🍪</span>
-                                <div>Adicionar foto dos mini cookies</div>
-                            </div>
-                        </div>
-                        <div class="item-description">
-                            Miniaturas dos nossos cookies, perfeitos para presentear ou compartilhar. Disponível nos sabores tradicional com chocolate preto ou red velvet com chocolate branco.
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="menu-item">
-                <div class="item-header" onclick="toggleItem(this)">
-                    <span class="item-name">Biscoitinho de chocolate branco com limão (100 gramas)</span>
-                    <span class="item-price">R$ 10,00</span>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="item-details">
-                    <div class="item-content">
-                        <div class="item-image">
-                            <div class="photo-placeholder">
-                                <span class="placeholder-icon">🍋</span>
-                                <div>Adicionar foto do biscoitinho de limão</div>
-                            </div>
-                        </div>
-                        <div class="item-description">
-                            Biscoitos crocantes, banhados em chocolate branco e finalizados com raspas de limão. O queridinho da galera.
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="menu-item">
-                <div class="item-header" onclick="toggleItem(this)">
-                    <span class="item-name">Mix Tradicionais (Consultar Sabores)</span>
-                    <span class="item-price">(P)R$ 27,00 / (G)R$ 37,00</span>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="item-details">
-                    <div class="item-content">
-                        <div class="item-image">
-                            <div class="photo-placeholder">
-                                <span class="placeholder-icon">🧁</span>
-                                <div>Adicionar foto do mix tradicionais</div>
-                            </div>
-                        </div>
-                        <div class="item-description">
-                            Seleção de sabores clássicos e amados. Consulte as combinações disponíveis no momento.
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="menu-item">
-                <div class="item-header" onclick="toggleItem(this)">
-                    <span class="item-name">Mix Premium (Consultar Sabores)</span>
-                    <span class="item-price">(P)R$ 35,00 / (G)R$ 45,00</span>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="item-details">
-                    <div class="item-content">
-                        <div class="item-image">
-                            <div class="photo-placeholder">
-                                <span class="placeholder-icon">✨</span>
-                                <div>Adicionar foto do mix premium</div>
-                            </div>
-                        </div>
-                        <div class="item-description">
-                            Sabores exclusivos, com ingredientes nobres. Ideal para ocasiões especiais.
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="menu-item">
-                <div class="item-header" onclick="toggleItem(this)">
-                    <span class="item-name">Tronco Cebola Caramelizada (700 gramas)</span>
-                    <span class="item-price">R$ 95,00</span>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="item-details">
-                    <div class="item-content">
-                        <div class="item-image">
-                            <div class="photo-placeholder">
-                                <span class="placeholder-icon">🧄</span>
-                                <div>Adicionar foto do tronco de cebola</div>
-                            </div>
-                        </div>
-                        <div class="item-description">
-                            Terrine salgada à base de massa leve, recheada com cebolas caramelizadas. Ideal para servir fatiado.
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="menu-item">
-                <div class="item-header" onclick="toggleItem(this)">
-                    <span class="item-name">Terrines (Serve de 10 a 15 pessoas, 1.150 kg)</span>
-                    <span class="item-price">R$ 140,00</span>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="item-details">
-                    <div class="item-content">
-                        <div class="item-image">
-                            <div class="photo-placeholder">
-                                <span class="placeholder-icon">🍰</span>
-                                <div>Adicionar foto das terrines</div>
-                            </div>
-                        </div>
-                        <div class="item-description">
-                            Sobremesa cremosa e delicada. Consulte os sabores disponíveis.
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="menu-item">
-                <div class="item-header" onclick="toggleItem(this)">
-                    <span class="item-name">Mix na Taça (Consultar Sabores, 1.250 kg)</span>
-                    <span class="item-price">R$ 160,00</span>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="item-details">
-                    <div class="item-content">
-                        <div class="item-image">
-                            <div class="photo-placeholder">
-                                <span class="placeholder-icon">🥂</span>
-                                <div>Adicionar foto do mix na taça</div>
-                            </div>
-                        </div>
-                        <div class="item-description">
-                            Montado em camadas numa taça decorativa. Visual impactante e sabores equilibrados. Ideal para festas.
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <script>
-        function toggleItem(header) {
-            const menuItem = header.parentElement;
-            const allItems = document.querySelectorAll('.menu-item');
-            
-            // Fecha todos os outros itens
-            allItems.forEach(item => {
-                if (item !== menuItem) {
-                    item.classList.remove('expanded');
-                }
-            });
-            
-            // Alterna o item clicado
-            menuItem.classList.toggle('expanded');
-        }
-
-        // Fecha item ao clicar fora
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.menu-item')) {
-                document.querySelectorAll('.menu-item').forEach(item => {
-                    item.classList.remove('expanded');
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+<!DOCTYPE html>  
+<html lang="pt-br">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>CARDÁPIO</title>  
+  <style>  
+    /* ----- ESTILOS GERAIS (DESKTOP) ----- */  
+    body {  
+      margin: 0;  
+      padding: 40px;  
+      font-family: 'Lato', sans-serif;  
+      background-image: url('plano_fundo.png');  
+      background-size: cover;  
+      background-position: center;  
+      background-repeat: no-repeat;  
+      background-attachment: fixed; /* Mantém o fundo fixo ao rolar */  
+      display: flex;  
+      justify-content: center;  
+      align-items: flex-start;  
+      min-height: 100vh;  
+    }  
+  
+    .cardapio {  
+      max-width: 800px;  
+      width: 100%;  
+      background-color: rgba(255, 247, 241, 0.95);  
+      padding: 30px;  
+      border-radius: 20px;  
+      border: 3px solid #e7d7d2;  
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);  
+      box-sizing: border-box; /* Garante que padding não aumente a largura total */  
+    }  
+  
+    .logo-container {  
+      text-align: center;  
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;  
+    }  
+  
+    .logo {
+      max-width: 350px; /* Reduzido para melhor proporção */
+      width: 100%; /* Garante que seja responsivo */
+      height: auto;
+      display: block;
+      margin: 0 auto; /* Centralização adicional */
+    }  
+  
+    .titulo {  
+      font-family: 'Dancing Script', cursive;
+      font-weight: 600;  /* Peso médio para elegância */
+      font-size: 40px;  
+      color: #8B4513;  
+      text-align: center;  
+      margin-bottom: 5px;  
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Sombra sutil */
+    }  
+  
+    .sub {  
+      text-align: center;  
+      font-size: 14px;  
+      color: #7a4a35;  
+      margin-bottom: 20px;  
+    }  
+  
+    .item {  
+      padding: 12px 0;  
+      border-bottom: 1px dotted #c9a88a;  
+      font-size: 16px;  
+      color: #3d2b1f;  
+    }  
+  
+    .item:last-child {  
+      border-bottom: none;  
+    }  
+  
+    .produto {  
+      cursor: pointer;  
+      font-weight: bold;  
+      color: #000000;  
+      /* Novo: Usando Flexbox para alinhar nome e preço */  
+      display: flex;  
+      justify-content: space-between;  
+      align-items: center;  
+      gap: 15px; /* Espaço entre o nome e o preço */  
+    }  
+  
+    .descricao {  
+      display: none;  
+      font-size: 14px;  
+      color: #6b4b3a;  
+      margin-top: 8px;  
+      padding-left: 5px;  
+    }  
+  
+    .descricao-especial {  
+      color: #a0522d;  
+    }  
+  
+    .preco {  
+      font-weight: bold;  
+      white-space: nowrap; /* Impede que o preço quebre a linha */ 
+      color: #8B4513;
+    }  
+      
+    /* ----- AJUSTES PARA CELULAR (RESPONSIVO) ----- */  
+    @media (max-width: 900px) {  
+      body {  
+        padding: 15px; /* Menos preenchimento nas laterais */  
+      }  
+  
+      .cardapio {  
+        padding: 20px;  
+      }  
+  
+      .logo {  
+        max-width: 500px; /* Logo um pouco menor no celular */  
+      }  
+  
+      .titulo {  
+        font-size: 25px; /* Título menor para caber na tela */  
+      }  
+  
+      .sub {  
+        font-size: 13px;  
+      }  
+  
+      .item {  
+        font-size: 14px;  
+      }  
+        
+      .descricao {  
+        font-size: 13px;  
+      }  
+      
+      .preco {
+        font-size: 16px;
+      }
+    }  
+  </style>  
+</head>  
+<body>  
+  <div class="cardapio">  
+    <div class="logo-container">  
+        <img src="logo.png" alt="Logo Brenda Mendes" class="logo">  
+    </div>  
+      
+    <div class="titulo">CARDÁPIO</div>  
+    <div class="sub">@brendacozinhagourmet</div>  
+  
+    <div class="item">  
+      <div class="produto" onclick="toggleDescricao('desc1')">  
+        <span>Cookie Individual (60 gramas)</span>  
+        <span class="preco">R$ 10,00</span>  
+      </div>  
+      <div id="desc1" class="descricao descricao-especial"> 
+      <img src="images/cookie-individual.jpg" alt="Cookie Individual" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+	  Cookies amanteigados com gotas de chocolate preto ou branco. Macio por dentro, crocante por fora.
+	</div>  
+  
+    <div class="item">  
+      <div class="produto" onclick="toggleDescricao('desc2')">  
+        <span>Mini Cookies (Consultar Sabores, 10 unid)</span>  
+        <span class="preco">R$ 28,00</span>  
+      </div>  
+      <div id="desc2" class="descricao descricao-especial">
+      <img src="images/mini-cookies.jpg" alt="Mini Cookies" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+	  Miniaturas dos nossos cookies, perfeitos para presentear ou compartilhar. Disponível nos sabores tradicional com chocolate preto ou red velvet com chocolate branco.
+	</div>  
+  
+    <div class="item">  
+      <div class="produto" onclick="toggleDescricao('desc3')">  
+        <span>Biscoitinho de chocolate branco com limão (100 gramas)</span>  
+        <span class="preco">R$ 10,00</span>  
+      </div>  
+      <div id="desc3" class="descricao descricao-especial">
+      <img src="images/biscoitinho-limao.jpg" alt="Biscoitinho de Limão" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+	  Biscoitos crocantes, banhados em chocolate branco e finalizados com raspas de limão. O queridinho da galera.
+	</div>  
+  
+    <div class="item">  
+      <div class="produto" onclick="toggleDescricao('desc4')">  
+        <span>Mix Tradicionais (Consultar Sabores)</span>  
+        <span class="preco">(P)R$ 27,00 / (G)R$ 37,00</span>  
+      </div>  
+      <div id="desc4" class="descricao descricao-especial">
+      <img src="images/mix-tradicional.jpg" alt="Mix Tradicional" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+	  Seleção de sabores clássicos e amados. Consulte as combinações disponíveis no momento.
+	</div>  
+  
+    <div class="item">  
+      <div class="produto" onclick="toggleDescricao('desc5')">  
+        <span>Mix Premium (Consultar Sabores)</span>  
+        <span class="preco">(P)R$ 35,00 / (G)R$ 45,00</span>  
+      </div>  
+      <div id="desc5" class="descricao descricao-especial">  
+      <img src="images/mix-premium.jpg" alt="Mix Premium" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+	  Sabores exclusivos, com ingredientes nobres. Ideal para ocasiões especiais.
+	</div>  
+  
+    <div class="item">  
+      <div class="produto" onclick="toggleDescricao('desc6')">  
+        <span>Tronco Cebola Caramelizada (700 gramas)</span>  
+        <span class="preco">R$ 95,00</span>  
+      </div>  
+      <div id="desc6" class="descricao descricao-especial"> 
+      <img src="images/tronco-cebolacaramelizada.jpg" alt="Tronco de Cebola Caramelizada" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+	  Terrine salgada à base de massa leve, recheada com cebolas caramelizadas. Ideal para servir fatiado.
+	</div>  
+  
+    <div class="item">  
+      <div class="produto" onclick="toggleDescricao('desc7')">  
+        <span>Terrines (Serve de 10 a 15 pessoas, 1.150 kg)</span>  
+        <span class="preco">R$ 140,00</span>  
+      </div>  
+      <div id="desc7" class="descricao descricao-especial">
+      <img src="images/terrines.jpg" alt="Terrines" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+	  Sobremesa cremosa e delicada. Consulte os sabores disponíveis.
+	</div>  
+  
+    <div class="item">  
+      <div class="produto" onclick="toggleDescricao('desc8')">  
+        <span>Mix na Taça (Consultar Sabores, 1.250 kg)</span>  
+        <span class="preco">R$ 160,00</span>  
+      </div>  
+      <div id="desc8" class="descricao descricao-especial">
+      <img src="images/mix-taca.jpg" alt="Mix na Taça" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+	  Montado em camadas numa taça decorativa. Visual impactante e sabores equilibrados. Ideal para festas.
+	</div>  
+  </div>  
+  
+  <script>  
+    function toggleDescricao(id) {  
+      const el = document.getElementById(id);  
+      el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';  
+    }  
+  </script>  
+</body>  
+</html>  
