@@ -105,6 +105,10 @@
       white-space: nowrap; /* Impede que o preço quebre a linha */ 
       color: #8B4513;
     }  
+
+    .preco::before {
+      content: '💰 ';
+    }
       
     /* ----- AJUSTES PARA CELULAR (RESPONSIVO) ----- */  
     @media (max-width: 900px) {  
