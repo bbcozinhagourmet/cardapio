@@ -110,8 +110,16 @@
       content: '💰 ';
     }
 
-    .linha-final {
-      display: none;
+    .imagem-produto img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.4s ease;
+     border-radius: 10px;
+    }
+ 
+    .imagem-produto:hover img {
+      transform: scale(1.1);
     }
 
     /* ----- AJUSTES PARA CELULAR (RESPONSIVO) ----- */  
@@ -172,7 +180,7 @@
 
   <div id="desc1" class="descricao descricao-especial">
     <div class="imagem-produto">
-      <img src="images/cookie-individual.jpg" alt="Cookie Individual">
+      <img src="images/cookie-individual.jpg" alt="Cookie Individual" style="width: 160px !important; height: 180px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;>
     </div>
 
     <div class="texto-produto">
