@@ -110,8 +110,8 @@
       content: '💰 ';
     }
 
-    .linha-final {
-     display: none;
+    .cardapio > *:last-child:empty {
+      display: none;
     }
 
     /* ----- AJUSTES PARA CELULAR (RESPONSIVO) ----- */  
@@ -147,7 +147,12 @@
       .preco {
         font-size: 16px;
       }
+
+      .cardapio > *:last-child:empty {
+        display: none;
+      }
     }  
+	  
   </style>  
 </head>  
 <body>  
@@ -256,7 +261,9 @@
 	   </span>
        </div>    
   </div>  
-  
+
+</div>
+   
   <script>  
     function toggleDescricao(id) {  
       const el = document.getElementById(id);  
