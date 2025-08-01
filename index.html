@@ -105,6 +105,10 @@
       white-space: nowrap; /* Impede que o preço quebre a linha */ 
       color: #8B4513;
     }  
+
+    .preco::before {
+      content: '💰 ';
+    }
       
     /* ----- AJUSTES PARA CELULAR (RESPONSIVO) ----- */  
     @media (max-width: 900px) {  
@@ -152,9 +156,9 @@
     <div class="sub">@brendacozinhagourmet</div>  
   
     <div class="item">  
-      <div class="produto" onclick="toggleDescricao('desc1')">  
-        <span>Cookie Individual (60 gramas)</span>  
-        <span class="preco">R$ 10,00</span>  
+      <div class="produto" onclick="toggleDescricao('desc1')" style="flex-direction: column; text-align: center;">
+      <span style="font-weight: bold; font-size: 16px;">Cookie Individual (60 gramas)</span>  
+      <span class="preco" style="margin-top: 5px;">R$ 10,00</span> 
       </div>  
       <div id="desc1" class="descricao descricao-especial" style="display: block !important; padding: 10px !important;">
   <div style="text-align: center;">
@@ -174,9 +178,9 @@
 </div>
   
     <div class="item">  
-      <div class="produto" onclick="toggleDescricao('desc2')">  
-        <span>Mini Cookies (Consultar Sabores, 10 unid)</span>  
-        <span class="preco">R$ 28,00</span>  
+       <div class="produto" onclick="toggleDescricao('desc2')" style="flex-direction: column; text-align: center;">
+       <span style="font-weight: bold; font-size: 16px;">Mini Cookies (10 unid)</span>  
+       <span class="preco" style="margin-top: 5px;">R$ 28,00</span>    
       </div>  
       <div id="desc2" class="descricao descricao-especial" style="display: block !important; padding: 10px !important;">
   <div style="text-align: center;">
@@ -193,9 +197,9 @@
 </div>
   
     <div class="item">  
-      <div class="produto" onclick="toggleDescricao('desc3')"> 
-        <span>Biscoitinho de chocolate branco com limão (100 gramas)</span>  
-        <span class="preco">R$ 10,00</span>  
+      <div class="produto" onclick="toggleDescricao('desc3')" style="flex-direction: column; text-align: center;">
+      <span style="font-weight: bold; font-size: 16px;">Biscoitinho de Chocolate Branco com Limão</span>  
+      <span class="preco" style="margin-top: 5px;">R$ 10,00</span>
       </div>  
       <div id="desc3" class="descricao descricao-especial" style="display: block !important; padding: 10px !important;">
   <div style="text-align: center;">
@@ -207,9 +211,9 @@
 </div>
   
     <div class="item">  
-      <div class="produto" onclick="toggleDescricao('desc4')"> 
-	<span>Mix Tradicionais (Consultar Sabores)</span>       
-        <span class="preco">(P)R$ 27,00 / (G)R$ 37,00</span>  
+      <div class="produto" onclick="toggleDescricao('desc4')" style="flex-direction: column; text-align: center;">
+      <span style="font-weight: bold; font-size: 16px;">Mix Tradicionais</span>  
+      <span class="preco" style="margin-top: 5px;">(P) R$ 27,00 / (G) R$ 37,00</span>    
       </div>  
       <div id="desc4" class="descricao descricao-especial" style="display: block !important; padding: 10px !important;">
   <div style="text-align: center;">
@@ -227,9 +231,9 @@
 </div>
   
     <div class="item">  
-      <div class="produto" onclick="toggleDescricao('desc5')"> 
-	<span>Mix Premium (Consultar Sabores)</span>        
-        <span class="preco">(P)R$ 35,00 / (G)R$ 45,00</span>  
+      <div class="produto" onclick="toggleDescricao('desc5')" style="flex-direction: column; text-align: center;">
+      <span style="font-weight: bold; font-size: 16px;">Mix Premium</span>  
+      <span class="preco" style="margin-top: 5px;">(P) R$ 35,00 / (G) R$ 45,00</span>  
       </div>  
       <div id="desc5" class="descricao descricao-especial" style="display: block !important; padding: 10px !important;">
   <div style="text-align: center;">
@@ -246,9 +250,9 @@
 </div>
   
     <div class="item">  
-      <div class="produto" onclick="toggleDescricao('desc6')"> 
-        <span>Tronco Cebola Caramelizada (700 gramas)</span>  
-        <span class="preco">R$ 95,00</span>  
+      <div class="produto" onclick="toggleDescricao('desc6')" style="flex-direction: column; text-align: center;">
+      <span style="font-weight: bold; font-size: 16px;">Tronco Cebola Caramelizada (700g)</span>  
+      <span class="preco" style="margin-top: 5px;">R$ 95,00</span>  
       </div>  
       <div id="desc6" class="descricao descricao-especial" style="display: block !important; padding: 10px !important;">
   <div style="text-align: center;">
@@ -260,9 +264,9 @@
 </div>
   
     <div class="item">  
-      <div class="produto" onclick="toggleDescricao('desc7')"> 
-        <span>Terrines (Serve de 10 a 15 pessoas, 1.150 kg)</span>  
-        <span class="preco">R$ 140,00</span>  
+       <div class="produto" onclick="toggleDescricao('desc7')" style="flex-direction: column; text-align: center;">
+       <span style="font-weight: bold; font-size: 16px;">Terrines (serve 10 a 15 pessoas)</span>  
+       <span class="preco" style="margin-top: 5px;">R$ 140,00</span>   
       </div>  
       <div id="desc7" class="descricao descricao-especial" style="display: block !important; padding: 10px !important;">
   <div style="text-align: center;">
@@ -280,9 +284,9 @@
 </div>
   
     <div class="item">  
-      <div class="produto" onclick="toggleDescricao('desc8')"> 
-        <span>Mix na Taça (Consultar Sabores, 1.250 kg)</span>  
-        <span class="preco">R$ 160,00</span>  
+       <div class="produto" onclick="toggleDescricao('desc8')" style="flex-direction: column; text-align: center;">
+       <span style="font-weight: bold; font-size: 16px;">Mix na Taça (1.250 kg)</span>  
+       <span class="preco" style="margin-top: 5px;">R$ 160,00</span>  
       </div>  
       <div id="desc8" class="descricao descricao-especial" style="display: block !important; padding: 10px !important;">
   <div style="text-align: center;">
