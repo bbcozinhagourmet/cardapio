@@ -150,35 +150,30 @@
       
     <div class="titulo">CARDÁPIO</div>  
     <div class="sub">@brendacozinhagourmet</div>  
-
-    <div class="item"> /*----- PRODUTO 1 -----*/
+  
+    <div class="item">  
       <div class="produto" onclick="toggleDescricao('desc1')">  
-        <span>🍪 Cookie Individual (60 gramas)</span>  
+        <span>Cookie Individual (60 gramas)</span>  
         <span class="preco">R$ 10,00</span>  
       </div>  
       <div id="desc1" class="descricao descricao-especial" style="display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 10px !important;">
       <img src="images/cookie-individual.jpg" alt="Cookie Individual" style="width: 120px !important; height: 100px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
-	  <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;">	
-	  Cookies amanteigados com gotas de chocolate preto ou branco. Macio por dentro, crocante por fora.
-	   </span>
-       </div>   
-    <div class="texto-produto">
-       <p>
-        Cookies amanteigados com gotas de chocolate preto ou branco. Crocante por fora e macio por dentro — uma verdadeira explosão de sabor!
-      </p>
-      <p><strong>Sabores disponíveis:</strong></p>
-      <ul class="sabores">
-        <li> Tradicional (chocolate ao leite)</li>
-        <li> Red Velvet (com chocolate branco)</li>
-        <li> Triplo Chocolate (massa de cacau com chocolate branco e ao leite)</li>
-      </ul>
-    </div>
-  </div>
-</div>
-	    
-    <div class="item"> /*----- PRODUTO 2 -----*/
+	  <div style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;">	
+            <p style="margin: 0 0 8px 0;">
+	  Cookies amanteigados com gotas de chocolate preto ou branco. Crocante por fora e macio por dentro — uma verdadeira explosão de sabor!
+	    </p>
+            <p style="margin: 0 0 5px 0;"><strong>Sabores disponíveis:</strong></p>
+            <ul style="margin: 0; padding-left: 18px;">
+              <li>🍫 Tradicional (chocolate ao leite)</li>
+              <li>❤️ Red Velvet (com chocolate branco)</li>
+              <li>🍩 Triplo Chocolate (massa de cacau com chocolate branco e ao leite)</li>
+            </ul>
+          </div>
+         </div>
+  
+    <div class="item">  
       <div class="produto" onclick="toggleDescricao('desc2')">  
-        <span>🍪 Mini Cookies (Consultar Sabores, 10 unid)</span>  
+        <span>Mini Cookies (Consultar Sabores, 10 unid)</span>  
         <span class="preco">R$ 28,00</span>  
       </div>  
       <div id="desc2" class="descricao descricao-especial" style="display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 10px !important;">
@@ -187,20 +182,7 @@
 	   Miniaturas dos nossos cookies, perfeitos para presentear ou compartilhar. Disponível nos sabores tradicional com chocolate preto ou red velvet com chocolate branco.
 	   </span>
        </div>  
-    <div class="texto-produto">
-       <p>
-        Miniaturas dos nossos cookies, perfeitos para presentear ou compartilhar. Crocantes por fora, macios por dentro.</p>
-       <p><strong>Sabores:</strong></p>
-     <ul class="sabores">
-      <li> Tradicional</li>
-      <li> Red Velvet</li>
-      <li> Triplo Chocolate</li>
-    </ul>
-   </div>
- </div> 
-</div>
-
-	    
+  
     <div class="item">  
       <div class="produto" onclick="toggleDescricao('desc3')"> 
         <span>Biscoitinho de chocolate branco com limão (100 gramas)</span>  
@@ -272,6 +254,7 @@
 	 Montado em camadas numa taça decorativa. Visual impactante e sabores equilibrados. Ideal para festas.
 	   </span>
        </div>    
+  </div>  
   
   <script>  
     function toggleDescricao(id) {  
