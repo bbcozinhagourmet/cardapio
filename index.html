@@ -109,7 +109,15 @@
     .preco::before {
       content: '💰 ';
     }
-      
+
+    .img-zoom {
+      transition: transform 0.3s ease;
+    }
+
+    .img-zoom:hover {
+      transform: scale(1.08);
+    }
+
     /* ----- AJUSTES PARA CELULAR (RESPONSIVO) ----- */  
     @media (max-width: 900px) {  
       body {  
