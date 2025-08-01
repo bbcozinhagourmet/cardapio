@@ -25,10 +25,10 @@
     .cardapio {  
       max-width: 800px;  
       width: 100%;  
-      background-color: rgba(255, 248, 241, 0.95); /* tom mais suave */
+      background-color: rgba(255, 247, 241, 0.95);  
       padding: 30px;  
       border-radius: 20px;  
-      border: 3px solid #e9d6cb; /* cor mais clara */
+      border: 3px solid #e7d7d2;  
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);  
       box-sizing: border-box; /* Garante que padding não aumente a largura total */  
     }  
@@ -42,7 +42,7 @@
     }  
   
     .logo {
-      max-width: 500px; /* Reduzido para melhor proporção */
+      max-width: 350px; /* Reduzido para melhor proporção */
       width: 100%; /* Garante que seja responsivo */
       height: auto;
       display: block;
@@ -52,8 +52,8 @@
     .titulo {  
       font-family: 'Dancing Script', cursive;
       font-weight: 600;  /* Peso médio para elegância */
-      font-size: 42px;  
-      color: #5D3A00;  
+      font-size: 40px;  
+      color: #8B4513;  
       text-align: center;  
       margin-bottom: 5px;  
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Sombra sutil */
@@ -103,25 +103,9 @@
     .preco {  
       font-weight: bold;  
       white-space: nowrap; /* Impede que o preço quebre a linha */ 
-      color: #663300;
+      color: #8B4513;
     }  
-
-    .preco::before {
-      content: '💰 ';
-    }
-
-    .imagem-produto img {
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
-     transition: transform 0.4s ease;
-     border-radius: 10px;
-    }
- 
-    .imagem-produto:hover img {
-      transform: scale(1.1);
-    }
-
+      
     /* ----- AJUSTES PARA CELULAR (RESPONSIVO) ----- */  
     @media (max-width: 900px) {  
       body {  
@@ -155,12 +139,7 @@
       .preco {
         font-size: 16px;
       }
-
-      .cardapio > *:last-child:empty {
-        display: none;
-      }
     }  
-	  
   </style>  
 </head>  
 <body>  
@@ -172,132 +151,108 @@
     <div class="titulo">CARDÁPIO</div>  
     <div class="sub">@brendacozinhagourmet</div>  
   
-    <div class="item"> /*----- PRODUTO 1 -----*/
-  <div class="produto" onclick="toggleDescricao('desc1')">
-    <span>🍪 Cookie Individual (60g)</span>
-    <span class="preco">R$ 10,00</span>
-  </div>
-  <div id="desc1" class="descricao descricao-especial" style="display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 10px !important;>
-    <div class="imagem-produto">
-      <img src="images/cookie-individual.jpg" alt="Cookie Individual" style="width: 160px !important; height: 180px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;>
-      <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;">
-	 </span>      
-    </div>  
-    <div class="texto-produto">
-      <p>
-        Cookies amanteigados com gotas de chocolate preto ou branco. Crocante por fora e macio por dentro — uma verdadeira explosão de sabor!
-      </p>
-      <p><strong>Sabores disponíveis:</strong></p>
-      <ul class="sabores">
-        <li>🍫 Tradicional (chocolate ao leite)</li>
-        <li>❤️ Red Velvet (com chocolate branco)</li>
-        <li>🍩 Triplo Chocolate (massa de cacau com chocolate branco e ao leite)</li>
-      </ul>
-    </div>
-  </div>
-</div>
+    <div class="item">  
+      <div class="produto" onclick="toggleDescricao('desc1')">  
+        <span>Cookie Individual (60 gramas)</span>  
+        <span class="preco">R$ 10,00</span>  
+      </div>  
+      <div id="desc1" class="descricao descricao-especial" style="display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 10px !important;">
+      <img src="images/cookie-individual.jpg" alt="Cookie Individual" style="width: 120px !important; height: 100px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
+	  <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;">	
+	  Cookies amanteigados com gotas de chocolate preto ou branco. Macio por dentro, crocante por fora.
+	   </span>
+       </div>   
   
-    <div class="item">  /*----- PRODUTO 2 -----*/
+    <div class="item">  
       <div class="produto" onclick="toggleDescricao('desc2')">  
         <span>Mini Cookies (Consultar Sabores, 10 unid)</span>  
         <span class="preco">R$ 28,00</span>  
       </div>  
-      <div id="desc2" class="descricao descricao-especial" style="display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 10px !important;>
-  <div class="imagem-produto">
-    <img src="images/mini-cookies.jpg" alt="Mini Cookies" style="width: 160px !important; height: 180px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;>
-    <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;">
-    </span>        
-</div>
-  <div class="texto-produto">
-    <p>
-    Miniaturas dos nossos cookies, perfeitos para presentear ou compartilhar. Crocantes por fora, macios por dentro. 💝</p>
-   </p>
-   <p><strong>Sabores:</strong></p>
-    <ul class="sabores">
-      <li>🍫 Tradicional</li>
-      <li>❤️ Red Velvet</li>
-      <li>🍩 Triplo Chocolate</li>
-    </ul>
-   </div>
- </div> 
-</div>
+      <div id="desc2" class="descricao descricao-especial" style="display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 10px !important;">
+      <img src="images/mini-cookies.jpg" alt="Mini Cookies" style="width: 120px !important; height: 100px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
+	   <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;">
+	   Miniaturas dos nossos cookies, perfeitos para presentear ou compartilhar. Disponível nos sabores tradicional com chocolate preto ou red velvet com chocolate branco.
+	   </span>
+       </div>  
   
-    <div class="item"> /*----- PRODUTO 3 -----*/ 
+    <div class="item">  
       <div class="produto" onclick="toggleDescricao('desc3')"> 
         <span>Biscoitinho de chocolate branco com limão (100 gramas)</span>  
         <span class="preco">R$ 10,00</span>  
       </div>  
       <div id="desc3" class="descricao descricao-especial" style="display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 10px !important;">
-      <img src="images/biscoitinho-limao.jpg" alt="Biscoitinho de Limão" style="width: 160px !important; height: 180px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
-	  Mini biscoitos crocantes, banhados em chocolate branco e leite em pó finalizados com raspas de limão. O queridinho da galera.
+      <img src="images/biscoitinho-limao.jpg" alt="Biscoitinho de Limão" style="width: 120px !important; height: 100px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
+	  <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;">
+	  Biscoitos crocantes, banhados em chocolate branco e finalizados com raspas de limão. O queridinho da galera.
 	  </span>
        </div>  
-    <div class="item"> /*----- PRODUTO 4 -----*/   
+  
+    <div class="item">  
       <div class="produto" onclick="toggleDescricao('desc4')"> 
-      <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;"
-	      <span>Mix Tradicionais (Consultar Sabores)</span>       
+	<span>Mix Tradicionais (Consultar Sabores)</span>       
         <span class="preco">(P)R$ 27,00 / (G)R$ 37,00</span>  
       </div>  
       <div id="desc4" class="descricao descricao-especial" style="display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 10px !important;">
-      <img src="images/mix-tradicional.jpg" alt="Mix Tradicional" style="width: 160px !important; height: 180px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
+      <img src="images/mix-tradicional.jpg" alt="Mix Tradicional" style="width: 120px !important; height: 100px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
 	  <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;">
-	 Seleção de sabores clássicos e amados. Disponível nos sabores Cebola caramelizada (se quiser podemos acrescentar bacon), Geleia de abacaxi com (pesto ou pimenta e pesto), Geleia de pimenta com pesto.
+	 Seleção de sabores clássicos e amados. Consulte as combinações disponíveis no momento.
 	   </span>
        </div>  
   
-    <div class="item"> /*----- PRODUTO 5 -----*/ 
+    <div class="item">  
       <div class="produto" onclick="toggleDescricao('desc5')"> 
 	<span>Mix Premium (Consultar Sabores)</span>        
         <span class="preco">(P)R$ 35,00 / (G)R$ 45,00</span>  
       </div>  
       <div id="desc5" class="descricao descricao-especial" style="display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 10px !important;">
-      <img src="images/mix-premium.jpg" alt="Mix Premium" style="width: 160px !important; height: 180px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
+      <img src="images/mix-premium.jpg" alt="Mix Premium" style="width: 120px !important; height: 100px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
 	  <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;">
-	 Sabores exclusivos, com ingredientes nobres. Ideal para ocasiões especiais. Disponível nos sabores Cebola caramelizada com bacon e pesto, ou Tomates confitados ao alho e pesto.
+	 Sabores exclusivos, com ingredientes nobres. Ideal para ocasiões especiais.
 	   </span>
        </div>   
   
-    <div class="item"> /*----- PRODUTO 6 -----*/   
+    <div class="item">  
       <div class="produto" onclick="toggleDescricao('desc6')"> 
         <span>Tronco Cebola Caramelizada (700 gramas)</span>  
         <span class="preco">R$ 95,00</span>  
       </div>  
       <div id="desc6" class="descricao descricao-especial" style="display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 10px !important;"> 
-      <img src="images/tronco-cebolacaramelizada.jpg" alt="Tronco de Cebola Caramelizada" style="width: 160px !important; height: 180px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
-	  <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justif130px !important; height: 180pxy !important;">
-	 Tronco de cebola caramelizada com geleia de pimenta (opcional). Sobremesa cremosa e delicada. Consulte os sabores disponíveis.
+      <img src="images/tronco-cebolacaramelizada.jpg" alt="Tronco de Cebola Caramelizada" style="width: 120px !important; height: 100px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
+	  <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;">
+	 Terrine salgada à base de massa leve, recheada com cebolas caramelizadas. Ideal para servir fatiado.
 	   </span>
        </div>    
   
-    <div class="item"> /*----- PRODUTO 7 -----*/  
+    <div class="item">  
       <div class="produto" onclick="toggleDescricao('desc7')"> 
         <span>Terrines (Serve de 10 a 15 pessoas, 1.150 kg)</span>  
         <span class="preco">R$ 140,00</span>  
       </div>  
       <div id="desc7" class="descricao descricao-especial" style="display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 10px !important;">
-      <img src="images/terrines.jpg" alt="Terrines" style="width: 160px !important; height: 180px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
+      <img src="images/terrines.jpg" alt="Terrines" style="width: 120px !important; height: 100px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
 	  <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;">
-	Terrine salgada à base de massa leve, recheada com cebolas caramelizadas e geleia de pimenta (opcional) envoltos em castanhas e finalizados com cebola crispy. Ideal para servir fatiado. Pode ser servido também nas versões Caprese (tomates confitados) finalizado com pesto, Cebola caramelizada com bacon finalizado com cebola crispy ou Geleia de pimenta com pesto finalizado com tomates confitados.
+	 Sobremesa cremosa e delicada. Consulte os sabores disponíveis.
 	   </span>
        </div>  
   
-    <div class="item"> /*----- PRODUTO 8 -----*/  
+    <div class="item">  
       <div class="produto" onclick="toggleDescricao('desc8')"> 
         <span>Mix na Taça (Consultar Sabores, 1.250 kg)</span>  
         <span class="preco">R$ 160,00</span>  
       </div>  
       <div id="desc8" class="descricao descricao-especial" style="display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 10px !important;">
-      <img src="images/mix-taca.jpg" alt="Mix na Taça" style="width: 160px !important; height: 180px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
+      <img src="images/mix-taca.jpg" alt="Mix na Taça" style="width: 120px !important; height: 100px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
 	  <span style="flex: 1 !important; font-size: 14px !important; line-height: 1.4 !important; text-align: justify !important;">
-	 Montado em camadas numa taça decorativa. Visual impactante e sabores equilibrados. Ideal para festas. Disponível nos sabores Cebola caramelizada com castanhas e cebola crispy, Geleia de pimenta com pesto e tomates confitados, Molho pesto com geleia de pimenta finalizado com bacon e cebola caramelizada ou Molho pesto e geleia de abacaxi com pimenta.
+	 Montado em camadas numa taça decorativa. Visual impactante e sabores equilibrados. Ideal para festas.
 	   </span>
        </div>    
-   
+  </div>  
+  
   <script>  
     function toggleDescricao(id) {  
       const el = document.getElementById(id);  
       el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';  
     }  
   </script>  
-</body>   
+</body>  
 </html>  
