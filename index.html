@@ -1,180 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Depoimentos - Brenda Cozinha Gourmet</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(45deg, #ff6b6b, #ffa726);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        /* Área dos depoimentos carregados do JSON */
-        #lista-depoimentos .depoimento {
-            background: #f8f9fa;
-            margin: 30px 0;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid #ff6b6b;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        #lista-depoimentos .depoimento p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        #lista-depoimentos .cliente {
-            font-weight: bold;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        #lista-depoimentos .estrelas {
-            color: #ffa726;
-            font-size: 1.2em;
-        }
-
-        .form-section {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            margin: 40px -40px -40px;
-            padding: 40px;
-            color: white;
-        }
-
-        .form-section h3 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1em;
-            background: rgba(255,255,255,0.9);
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .btn-submit {
-            background: #ff6b6b;
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: block;
-            margin: 30px auto 0;
-        }
-
-        .btn-submit:hover {
-            background: #ff5252;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
-        }
-
-        .whatsapp-btn {
-            background: #25d366;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            margin: 20px auto;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-btn:hover {
-            background: #22c55e;
-            transform: translateY(-2px);
-        }
-
-        .center {
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            .header h1 {
-                font-size: 2em;
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            .form-section {
-                margin: 20px -20px -20px;
-                padding: 20px;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: linear-gradient(45deg, #ff6b6b, #ffa726); color: white; padding: 40px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .header p { font-size: 1.2em; opacity: 0.9; }
+        .content { padding: 40px; }
+        .depoimento { background: #f8f9fa; margin: 30px 0; padding: 25px; border-radius: 15px; border-left: 5px solid #ff6b6b; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+        .depoimento p { font-size: 1.1em; line-height: 1.6; color: #555; margin-bottom: 15px; }
+        .cliente { font-weight: bold; color: #333; display: flex; align-items: center; gap: 10px; }
+        .estrelas { color: #ffa726; font-size: 1.2em; }
+        .form-section { background: linear-gradient(45deg, #667eea, #764ba2); margin: 40px -40px -40px; padding: 40px; color: white; }
+        .form-section h3 { font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: none; border-radius: 8px; font-size: 1em; background: rgba(255,255,255,0.9); }
+        .form-group textarea { height: 120px; resize: vertical; }
+        .btn-submit { background: #ff6b6b; color: white; padding: 15px 40px; border: none; border-radius: 50px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: all 0.3s ease; display: block; margin: 30px auto 0; }
+        .btn-submit:hover { background: #ff5252; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,107,107,0.4); }
+        .whatsapp-btn { background: #25d366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; font-weight: bold; margin: 20px auto; transition: all 0.3s ease; }
+        .whatsapp-btn:hover { background: #22c55e; transform: translateY(-2px); }
+        .center { text-align: center; }
+        @media (max-width: 600px) { .header h1 { font-size: 2em; } .content { padding: 20px; } .form-section { margin: 20px -20px -20px; padding: 20px; } }
     </style>
 </head>
 <body>
@@ -183,126 +36,110 @@
             <h1>🌟 Depoimentos</h1>
             <p>O que nossos clientes dizem sobre a Brenda Cozinha Gourmet</p>
         </div>
-
-        <div class="content">
-            <div id="lista-depoimentos">
-                <!-- Depoimentos carregados do JSON aparecerão aqui -->
+        
+        <div class="content" id="listaDepoimentos">
+            <!-- Depoimentos fixos -->
+            <div class="depoimento">
+                <p>"A Brenda transformou completamente minha forma de cozinhar! As receitas são incríveis e as dicas fazem toda a diferença. Minha família adora os pratos que aprendi com ela!"</p>
+                <div class="cliente"><span>Maria Silva</span><div class="estrelas">⭐⭐⭐⭐⭐</div></div>
             </div>
-
-            <div class="form-section">
-                <h3>✨ Deixe seu Depoimento</h3>
-                <p style="text-align: center; margin-bottom: 30px;">Sua opinião é muito importante para nós!</p>
-
-                <form id="formDepoimento" onsubmit="enviarDepoimento(event)">
-                    <div class="form-group">
-                        <label for="nome">Seu Nome:</label>
-                        <input type="text" id="nome" name="nome" required placeholder="Como podemos te chamar?">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="depoimento">Seu Depoimento:</label>
-                        <textarea id="depoimento" name="depoimento" required placeholder="Conte sobre sua experiência com a Brenda Cozinha Gourmet..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="avaliacao">Avaliação:</label>
-                        <select id="avaliacao" name="avaliacao" style="width: 100%; padding: 12px; border: none; border-radius: 8px;">
-                            <option value="5">⭐⭐⭐⭐⭐ - Excelente</option>
-                            <option value="4">⭐⭐⭐⭐ - Muito Bom</option>
-                            <option value="3">⭐⭐⭐ - Bom</option>
-                            <option value="2">⭐⭐ - Regular</option>
-                            <option value="1">⭐ - Precisa Melhorar</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Enviar Depoimento ✨</button>
-                </form>
-
-                <div class="center" style="margin-top: 30px;">
-                    <p>Ou envie via WhatsApp:</p>
-                    <a id="btnWhats" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-                        📱 Enviar pelo WhatsApp
-                    </a>
+            <div class="depoimento">
+                <p>"Consultoria gastronômica excepcional! A Brenda me ajudou a organizar minha cozinha e criar um cardápio especial para meu evento. Todos os convidados elogiaram!"</p>
+                <div class="cliente"><span>João Santos</span><div class="estrelas">⭐⭐⭐⭐⭐</div></div>
+            </div>
+            <div class="depoimento">
+                <p>"Produtos de qualidade excepcional e atendimento personalizado. A Brenda realmente entende do assunto e passa muita confiança. Super recomendo!"</p>
+                <div class="cliente"><span>Ana Costa</span><div class="estrelas">⭐⭐⭐⭐⭐</div></div>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <h3>✨ Deixe seu Depoimento</h3>
+            <p style="text-align: center; margin-bottom: 30px;">Sua opinião é muito importante para nós!</p>
+            
+            <form id="formDepoimento">
+                <div class="form-group">
+                    <label>Seu Nome:</label>
+                    <input type="text" id="nome" required placeholder="Como podemos te chamar?">
                 </div>
+                <div class="form-group">
+                    <label>Seu Depoimento:</label>
+                    <textarea id="depoimento" required placeholder="Conte sobre sua experiência com a Brenda Cozinha Gourmet..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Avaliação:</label>
+                    <select id="avaliacao">
+                        <option value="5">⭐⭐⭐⭐⭐ - Excelente</option>
+                        <option value="4">⭐⭐⭐⭐ - Muito Bom</option>
+                        <option value="3">⭐⭐⭐ - Bom</option>
+                        <option value="2">⭐⭐ - Regular</option>
+                        <option value="1">⭐ - Precisa Melhorar</option>
+                    </select>
+                </div>
+                <button type="button" class="btn-submit" id="btnSalvar">Enviar Depoimento ✨</button>
+            </form>
+            
+            <div class="center" style="margin-top: 30px;">
+                <p>Ou envie via WhatsApp:</p>
+                <a id="btnWhats" class="whatsapp-btn" target="_blank">
+                    📱 Enviar pelo WhatsApp
+                </a>
             </div>
         </div>
     </div>
 
     <script>
-        // Função para carregar depoimentos do JSON externo
-        async function carregarDepoimentos() {
-            const lista = document.getElementById('lista-depoimentos');
-            try {
-                const response = await fetch('comentarios.json');
-                if (!response.ok) throw new Error('Erro ao carregar depoimentos');
-                const depoimentos = await response.json();
-
-                lista.innerHTML = '';
-
-                if (depoimentos.length === 0) {
-                    lista.innerHTML = '<p style="text-align:center; color:#666;">Seja o primeiro a deixar seu depoimento!</p>';
-                    return;
-                }
-
-                depoimentos.forEach(dep => {
-                    const div = document.createElement('div');
-                    div.classList.add('depoimento');
-                    div.innerHTML = `
-                        <p>"${dep.comentario}"</p>
-                        <div class="cliente">
-                            <span>${dep.nome}</span>
-                            <div class="estrelas">${'⭐'.repeat(dep.avaliacao || 5)}</div>
-                        </div>
-                    `;
-                    lista.appendChild(div);
-                });
-            } catch (error) {
-                lista.innerHTML = '<p style="text-align:center; color:red;">Não foi possível carregar os depoimentos.</p>';
-                console.error(error);
-            }
+        // Função para exibir depoimentos salvos
+        function exibirDepoimentos() {
+            const lista = document.getElementById("listaDepoimentos");
+            let depoimentos = JSON.parse(localStorage.getItem("depoimentos")) || [];
+            lista.querySelectorAll(".depoimento.dynamic").forEach(el => el.remove());
+            depoimentos.forEach(dep => {
+                const div = document.createElement("div");
+                div.classList.add("depoimento", "dynamic");
+                div.innerHTML = `<p>"${dep.mensagem}"</p><div class="cliente"><span>${dep.nome}</span><div class="estrelas">${"⭐".repeat(dep.avaliacao)}</div></div>`;
+                lista.appendChild(div);
+            });
         }
 
-        // Enviar depoimento via WhatsApp com os dados do formulário
-        function atualizarLinkWhatsApp() {
-            const nome = document.getElementById('nome').value.trim();
-            const depoimento = document.getElementById('depoimento').value.trim();
-            const avaliacao = document.getElementById('avaliacao').value;
+        // Salvar depoimento no site
+        document.getElementById("btnSalvar").addEventListener("click", () => {
+            const nome = document.getElementById("nome").value.trim();
+            const mensagem = document.getElementById("depoimento").value.trim();
+            const avaliacao = document.getElementById("avaliacao").value;
 
-            const texto = `Olá! Gostaria de deixar meu depoimento:%0A%0ANome: ${nome}%0AAvaliação: ${avaliacao} estrelas%0ADepoimento: ${depoimento}`;
-            const url = `https://wa.me/5519987053564?text=${texto}`;
-
-            const btnWhats = document.getElementById('btnWhats');
-            btnWhats.href = url;
-        }
-
-        // Enviar depoimento (abre WhatsApp em nova aba com mensagem montada)
-        function enviarDepoimento(event) {
-            event.preventDefault();
-
-            const nome = document.getElementById('nome').value.trim();
-            const depoimento = document.getElementById('depoimento').value.trim();
-            const avaliacao = document.getElementById('avaliacao').value;
-
-            if (!nome || !depoimento) {
-                alert('Por favor, preencha seu nome e depoimento.');
+            if (!nome || !mensagem) {
+                alert("Preencha todos os campos!");
                 return;
             }
 
-            atualizarLinkWhatsApp();
-            window.open(document.getElementById('btnWhats').href, '_blank');
+            let depoimentos = JSON.parse(localStorage.getItem("depoimentos")) || [];
+            depoimentos.push({ nome, mensagem, avaliacao });
+            localStorage.setItem("depoimentos", JSON.stringify(depoimentos));
 
-            // Limpar formulário
-            document.getElementById('formDepoimento').reset();
-            alert('Redirecionando para o WhatsApp! 😊');
-        }
+            exibirDepoimentos();
 
-        // Atualiza o link do WhatsApp ao digitar nos campos
-        document.getElementById('nome').addEventListener('input', atualizarLinkWhatsApp);
-        document.getElementById('depoimento').addEventListener('input', atualizarLinkWhatsApp);
-        document.getElementById('avaliacao').addEventListener('change', atualizarLinkWhatsApp);
+            document.getElementById("formDepoimento").reset();
+            alert("Depoimento registrado com sucesso! ✅");
+        });
 
-        // Carrega os depoimentos quando a página carregar
-        window.addEventListener('DOMContentLoaded', carregarDepoimentos);
+        // Configurar botão WhatsApp
+        document.getElementById("btnWhats").addEventListener("click", () => {
+            const nome = document.getElementById("nome").value.trim();
+            const mensagem = document.getElementById("depoimento").value.trim();
+            const avaliacao = document.getElementById("avaliacao").value;
+
+            if (!nome || !mensagem) {
+                alert("Preencha todos os campos!");
+                return;
+            }
+
+            const texto = encodeURIComponent(`Olá! Gostaria de deixar meu depoimento:\n\nNome: ${nome}\nAvaliação: ${avaliacao} estrelas\nDepoimento: ${mensagem}`);
+            document.getElementById("btnWhats").href = `https://wa.me/5519987053564?text=${texto}`;
+        });
+
+        // Carregar depoimentos ao abrir
+        document.addEventListener("DOMContentLoaded", exibirDepoimentos);
     </script>
 </body>
 </html>
